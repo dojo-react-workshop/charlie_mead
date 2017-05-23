@@ -1,5 +1,18 @@
 'use strict';
 
+// using new
+function VehicleConstructor(name, numWheels, numPass, speed = 0) {
+    this.name = name;
+    this.speed = speed;
+}
+
+VehicleConstructor.prototype.accelerate = function (velChg = 1) {
+    this.speed += velChg;
+    return this.speed;
+}
+
+/*
+using Object.create
 const VehicleConstructor = (function(){
     const vehiclePrototype = {
         accelerate: function(velChg = 1) {
@@ -15,5 +28,5 @@ const VehicleConstructor = (function(){
         
         return vehicle;
     }
-
 })();
+*/
