@@ -14,8 +14,28 @@ const orderSupplies = (item, callback) => {
       callback(foundItem);
     }
 
-  }, deliveryTime )
+  }, deliveryTime );
 }
 
-orderSupplies('paint', (delivery) => console.log(`${delivery.item} delivered! Time to ${delivery.action()}`));
-orderSupplies('brush', (delivery) => console.log(`${delivery.item} delivered! Time to ${delivery.action()}`));
+const printItem = (delivery) => console.log(`${delivery.item} delivered! Time to ${delivery.action()}`)
+
+let paintReceived = false;
+let brush = null;
+
+orderSupplies('paint', (item) => {
+    printItem(item);
+    paintReceived = true;
+
+    if (brush) {
+        printItem(brush);
+    }
+    
+});
+
+orderSupplies('brush', (item) => {
+    if (paintReceived) {
+        printItem(item);
+    } else {
+        brush = item;
+    }
+});
