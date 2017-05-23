@@ -1,4 +1,4 @@
-const orderSupplies = (item, callback) => {
+const orderSupplies = (item) => {
   // The orderSupplies function first finds the item you requested
   const warehouse = [
     { item: 'paint', action(){ return 'start mixing!' } },
@@ -7,35 +7,22 @@ const orderSupplies = (item, callback) => {
 
   const deliveryTime = Math.random() * 3000 + 1000;
 
-  setTimeout( () => {
-    const foundItem = warehouse.find((obj) => obj.item === item);
 
-    if (foundItem) {
-      callback(foundItem);
-    }
+  return new Promise((resolve, reject) => {
+    setTimeout( () => {
+        const foundItem = warehouse.find((obj) => obj.item === item);
 
-  }, deliveryTime );
+        if (foundItem) {
+            resolve(foundItem);
+        }
+
+    }, deliveryTime );
+  })
 }
 
 const printItem = (delivery) => console.log(`${delivery.item} delivered! Time to ${delivery.action()}`)
 
-let paintReceived = false;
-let brush = null;
-
-orderSupplies('paint', (item) => {
-    printItem(item);
-    paintReceived = true;
-
-    if (brush) {
-        printItem(brush);
-    }
-    
-});
-
-orderSupplies('brush', (item) => {
-    if (paintReceived) {
+orderSupplies('brush')
+    .then(function(item){
         printItem(item);
-    } else {
-        brush = item;
-    }
-});
+    })
