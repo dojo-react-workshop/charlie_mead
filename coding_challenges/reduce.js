@@ -1,7 +1,13 @@
-const array = [1,2,3,4,0];
+Array.prototype.reduce = function (cb, accumulator) {
+    let i = 0;
 
-const sum = array.reduce((currentSum, currentVal) => {
-    return currentSum + currentVal;
-});
+    if (accumulator === undefined) {
+        accumulator = this[0];
+        i = 1;
+    }
+    for (i; i < this.length; i += 1) {
+        accumulator = cb(accumulator, this[i]);
+    }
 
-console.log(sum);
+    return accumulator;
+}
