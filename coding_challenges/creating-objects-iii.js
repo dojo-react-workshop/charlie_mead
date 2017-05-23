@@ -1,13 +1,19 @@
-function Vehicle(name, numOfWheels, numOfPassengers, speed) {
-    const vehicle = {
-        name,
-        numOfWheels,
-        numOfPassengers,
-        speed
-    };
-    return vehicle;
-}
+'use strict';
 
-const v1 = Vehicle('sedan', 4);
-const v2 = Vehicle('big rig', 16);
-const v3 = Vehicle('school bus', 24);
+const VehicleConstructor = (function(){
+    const vehiclePrototype = {
+        accelerate: function(velChg = 1) {
+            this.speed += velChg;
+            return this.speed;
+        }
+    }
+
+    return function VehicleConstructor(name, numWheels, numPass, speed=0){
+        const vehicle = Object.create(vehiclePrototype);
+        vehicle.name = name;
+        vehicle.speed = speed;
+        
+        return vehicle;
+    }
+
+})();
