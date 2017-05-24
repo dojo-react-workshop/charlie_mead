@@ -22,7 +22,14 @@ const orderSupplies = (item) => {
 
 const printItem = (delivery) => console.log(`${delivery.item} delivered! Time to ${delivery.action()}`)
 
-orderSupplies('brush')
-    .then(function(item){
+const brushPromise = orderSupplies('brush');
+const paintPromise = orderSupplies('paint');
+
+paintPromise
+    .then((item) => {
+        printItem(item);
+        return brushPromise;
+    })
+    .then((item) => {
         printItem(item);
     })
