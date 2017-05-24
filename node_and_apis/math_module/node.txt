@@ -1,0 +1,1 @@
+It lets us run JavaScript code free from our browser, using our computer's native hardware. Using Chrome's V8 engine, we can do everything from running JavaScript files directly from the terminal, to traversing local files, to even spinning up a web server!
