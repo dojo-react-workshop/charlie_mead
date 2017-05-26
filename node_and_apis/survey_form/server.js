@@ -21,6 +21,10 @@ app.get('/', function (req, res) {
 })
 
 app.post('/submit', function (req, res) {
+    if (req.body.name === '') {
+        res.status(400);
+        res.json(false);
+    }
     res.json(req.body)
 })
 
