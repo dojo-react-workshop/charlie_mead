@@ -20,18 +20,19 @@
     <div id="js"></div>
     <div id="react"></div>
     <script>
+        'use strict';
         const jsContainer = document.getElementById("js");
         const reactContainer = document.getElementById("react");
         render();
         renderReact();
-        
+
         function render(){
             jsContainer.innerHTML =
             `
                 <div class="demo">
                     Hello JS
                     <input />
-                    <p>${new Date()}</p>
+                    <p class='time'>${new Date()}</p>
                 </div>
             `;
         }
@@ -41,7 +42,7 @@
                 React.createElement(
                     'div', 
                     { className: 'demo'},
-                    'Hello React',
+                    text,
                     React.createElement('input'),
                     React.createElement('p', null, `${new Date()}`)
                     ), 
