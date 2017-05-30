@@ -1,6 +1,7 @@
 # Phrases
 
-* virtual browser/Virtual DOM/reconciliation
+* virtual browser/Virtual DOM
+* tree reconciliation
 * User interface
 * declaratively describe UI
 * state
@@ -14,3 +15,4 @@
 * JSX
 * ReactDOM
 * properties
+* Native web APIs
