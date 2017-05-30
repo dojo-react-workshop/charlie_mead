@@ -7,11 +7,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="node_modules/react/dist/react.js"></script>
     <script src="node_modules/react-dom/dist/react-dom.js"></script>
+    <style media="screen">
+        .demo {
+            border: 1px solid #ccc;
+            margin: 1em;
+            padding: 1em;
+        }
+    </style>
 </head>
+
 <body>
-    <div id="root">
-    </div>
+    <div id="js"></div>
+    <div id="react"></div>
     <script>
+        const jsContainer = document.getElementById("js");
+        const reactContainer = document.getElementById("react");
+        render();
+        renderReact();
+        
+        function render(){
+            jsContainer.innerHTML =
+            `
+                <div class="demo">
+                    Hello JS
+                    <input />
+                    <p>${new Date()}</p>
+                </div>
+            `;
+        }
+
+        function renderReact(){
+            ReactDOM.render(
+                React.createElement(
+                    'div', 
+                    { className: 'demo'},
+                    'Hello React',
+                    React.createElement('input'),
+                    React.createElement('p', null, `${new Date()}`)
+                    ), 
+                reactContainer);
+        }
+
+        setInterval(render, 1000);
+        setInterval(renderReact, 1000);
+
     </script>
 
 </body>
