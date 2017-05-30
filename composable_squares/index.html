@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+    </head>
+    <body>
+        <div id="react"></div>
+        <script type="text/babel">
+            'use strict';
+            const squares = [
+                {
+                    background: 'blue',
+                    text: 'white'
+                },
+                {
+                    background: 'aquamarine',
+                    text: 'brown'
+                },
+                {
+                    background: 'purple',
+                    text: 'lightblue'
+                }
+            ]
+
+            const Container = (props) => {
+                const squares = props.squares.map((squareObj, idx) => {
+                    return <Square key={idx} colorData={squareObj}/>
+                })
+                return (
+                    <div>
+                        <h1>Take a look at my squares!</h1>
+                        {squares}
+                    </div>
+                )
+                
+            }
+
+            const Square = (props) => {
+                const { colorData } = props;
+                const style = {
+                    height: '275px',
+                    width: '275px',
+                    display: 'inline-block',
+                    fontSize: '20px',
+                    color: colorData.text,
+                    backgroundColor: colorData.background
+                };
+
+                 const text = `${style.color} on ${style.backgroundColor}`;
+
+                return <div style={style}>{text}</div>
+            }
+
+            ReactDOM.render(
+                <Container squares={squares}/>,
+                document.getElementById('react')
+            )
+        </script>
+
+    
+    </body>
+</html>
