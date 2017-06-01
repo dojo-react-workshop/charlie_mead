@@ -1,4 +1,16 @@
-## Coding Challenges
+## React assignment solutions
+* [ticking clock](./ticking_clock/index.html)
+* [hello dojo](./hello_dojo/index.html)
+* [composable squares](./composable_squares/index.html)
+* [counter](./counter/index.html)
+* [voting app](./voting_app/index.html)
+
+## Morning Coding Challenges
 
 * [filter](./coding_challenges/filter.js)
-* [map](./coding_challenges/filter.js)
+* [map](./coding_challenges/map.js)
+* [reduce](./coding_challenges/reduce.js)
+* [creating objects](./coding_challenges/creating-objects-iii.js)
+* [get max profit](./coding_challenges/getMaxProfit.js)
+* [get products](./coding_challenges/getProducts.js)
+* [rainy terraces](./coding_challenges/rainyTerraces.js)
