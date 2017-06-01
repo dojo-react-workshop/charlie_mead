@@ -36,16 +36,11 @@
                 });
                 
                 this.setState({
-                    libraries: newLibraries
-                });
-            }
-            sortedLibraries(){
-                return this.state.libraries.concat().sort(( a,b ) => { 
-                    return b.votes - a.votes
+                    libraries: newLibraries.sort(( a,b ) => b.votes - a.votes)
                 });
             }
             render(){
-                const voteTiles = this.sortedLibraries()
+                const voteTiles = this.state.libraries
                             .map((libObj) => {
                                 return <VoteTile 
                                             key={libObj.libName} 
