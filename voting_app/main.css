@@ -1,0 +1,40 @@
+header {
+    text-align: center;
+}
+
+.vote-count, .library-name {
+    display: inline-block;
+}
+
+.vote-count {
+    border: 2px solid black;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    margin: 0 10px;
+}
+
+.library-name {
+    width: 45px;
+    padding-left: 15px;
+}
+
+.vote-tile {
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 200px;
+    position: relative;
+}
+
+.vote-button {
+  font-size: 36px;
+  font-weight: bolder;
+  color: mediumseagreen;
+  position: absolute;
+  top: 3px;
+  right: 15px;
+  cursor: pointer;
+}

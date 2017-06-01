@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Voting App</title>
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+        <link rel="stylesheet" href="main.css">
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+        class VoteTileList extends React.Component {
+            constructor(props){
+                super(props);
+                this.state = {
+                libraries: [
+                        { votes: 15, libName: 'React' },
+                        { votes: 12, libName: 'Vue' },
+                        { votes: 9, libName: 'Angular' },
+                        { votes: 4, libName: 'Ember' },
+                    ]   
+                }
+
+                this.incrementVote = this.incrementVote.bind(this);
+            }
+            incrementVote(library){
+                const newLibraries = this.state.libraries.map((libObj, index) => {
+                    if ( libObj.libName === library ) {
+                        return {
+                            ...libObj,
+                            votes: libObj.votes + 1
+                        }
+                    }
+                    return libObj;
+                });
+                
+                this.setState({
+                    libraries: newLibraries
+                });
+            }
+            sortedLibraries(){
+                return this.state.libraries.concat().sort(( a,b ) => { 
+                    return b.votes - a.votes
+                });
+            }
+            render(){
+                const voteTiles = this.sortedLibraries()
+                            .map((libObj) => {
+                                return <VoteTile 
+                                            key={libObj.libName} 
+                                            votes={libObj.votes} 
+                                            libraryName={libObj.libName}
+                                            onClick={ this.incrementVote }/>
+                            });
+
+                return (
+                    <div className="vote-tile-list">
+                    {voteTiles}
+                    </div>
+                )
+            }
+        }
+        const VoteTile = (props) => {
+            const handleClick = () => {
+                props.onClick(props.libraryName)
+            }
+            return (
+                <div className="vote-tile">
+                    <div className="vote-count">{props.votes}</div>
+                    <p className="library-name">{props.libraryName}</p>
+                    <i className="material-icons vote-button" onClick={handleClick}>+</i>
+                </div>
+            )
+        }
+
+        const App = (props) => {
+            return (
+            <div>
+                <header>
+                    <h1>Vote Your JS Library!</h1>
+                </header>
+                <VoteTileList />
+            </div>
+            )
+        }
+
+        ReactDOM.render(<App />, document.getElementById('app'));
+            
+        </script>
+    </body>
+</html>
