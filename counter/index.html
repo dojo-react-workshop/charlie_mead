@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Counter</title>
+        <script src="node_modules/react/dist/react.js"></script>
+        <script src="node_modules/react-dom/dist/react-dom.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
+        <style>
+            .CounterList {
+                margin: 0 auto;
+                width: 200px;
+            }
+            .Counter {
+                text-align: center;
+                border: 2px solid black;
+                padding: 5px;
+                margin: 2px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+            class App extends React.Component{
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        counters: 1
+                    }
+                    this.incrementCounters = this.incrementCounters.bind(this);
+                }
+                incrementCounters(){
+                    this.setState({
+                        counters: this.state.counters + 1
+                    })
+                }
+                render(){
+                    return (
+                        <div className="App">
+                            <AddCounter onClick={this.incrementCounters}/>
+                            <CounterList counters={this.state.counters} />
+                        </div>
+                    )
+                }
+            }
+
+            const AddCounter = (props) => (
+                <button onClick={props.onClick}>Add Counter</button>
+            )
+
+            const CounterList = (props) => {
+                const counters = [];
+                for (let i = 0; i < props.counters; i += 1){
+                    counters.push(<Counter key={i} />);
+                }
+                return (
+                    <div className="CounterList">
+                        { counters }
+                    </div>
+                )
+            }
+
+            class Counter extends React.Component {
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        count: 0
+                    }
+                    this.increment = this.increment.bind(this);
+                    this.decrement = this.decrement.bind(this);
+                }
+                increment(){
+                    this.setState({
+                        count: this.state.count + 1
+                    })
+                }
+                decrement(){
+                    this.setState({
+                        count: this.state.count - 1
+                    })
+                }
+                render(){
+                    return (
+                        <div className="Counter">
+                            <h1>{this.state.count}</h1>
+                            <button onClick={this.increment}>Increment</button>
+                            <button onClick={this.decrement}>Decrement</button>
+                        </div>
+                    )
+                }
+            }
+
+            ReactDOM.render(<App />, document.getElementById('app'));
+        </script>
+    </body>
+</html>
