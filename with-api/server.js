@@ -3,11 +3,18 @@ const app = express();
 const bP = require('body-parser');
 const path = require('path');
 const port = 8000;
+const axios = require('axios');
 
 app.use(bP.urlencoded({extended: true}));
 
 app.get('/repos/:username', (req, res) => {
-    res.json(['repo1', 'repo2', 'repo3']);
+    axios.get(`https://api.github.com/users/${req.params.username}/repos`)
+        .then((response) => {
+            res.json(response.data);
+        })
+        .catch((err) => {
+            console.log(err);
+        });
 });
 
 app.listen(port, () => {
