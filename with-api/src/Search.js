@@ -18,7 +18,7 @@ class Search extends Component {
         return (
             <div>
                 <input 
-                    type="text" 
+                    type="search" 
                     value={this.state.username}
                     onChange={this.handleChange}
                     />
