@@ -4,6 +4,7 @@
 * [composable squares](./composable_squares/index.html)
 * [counter](./counter/index.html)
 * [voting app](./voting_app/index.html)
+* [tic-tac-toe](./tic-tac-toe/index.html)
 
 ## Morning Coding Challenges
 
