@@ -6,8 +6,10 @@
 * [voting app](./voting_app/index.html)
 * [tic-tac-toe](./tic-tac-toe/index.html)
 
-## Morning Coding Challenges
+## Demos
+* [react with api](./with-api)
 
+## Morning Coding Challenges
 * [filter](./coding_challenges/filter.js)
 * [map](./coding_challenges/map.js)
 * [reduce](./coding_challenges/reduce.js)
