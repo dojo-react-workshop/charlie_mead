@@ -14,3 +14,4 @@
 * [get max profit](./coding_challenges/getMaxProfit.js)
 * [get products](./coding_challenges/getProducts.js)
 * [rainy terraces](./coding_challenges/rainyTerraces.js)
+* [in order subsets](./coding_challenges/inOrderSubsets.js)
