@@ -7,9 +7,9 @@ const port = 8000;
 app.use(bP.urlencoded({extended: true}));
 
 app.get('/repos/:username', (req, res) => {
-    res.json(req.params.username);
+    res.json(['repo1', 'repo2', 'repo3']);
 });
 
 app.listen(port, () => {
     console.log(`Running on ${port}`);
-})
+}); 

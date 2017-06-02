@@ -1,10 +1,12 @@
 import React from 'react';
 
-const RepoList = () => {
+const RepoList = (props) => {
+    const repos = props.repos.map((name) => {
+        return <li key={name}>{name}</li>
+    })
     return (
         <ul>
-            <li>Repo A</li>
-            <li>Repo B</li>
+            {repos}
         </ul>
     )
 }

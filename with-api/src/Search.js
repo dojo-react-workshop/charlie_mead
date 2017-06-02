@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { getReposByUsername } from './apiHelpers';
 
-const Search = () => {
-    return (
-        <div>
-            <input type="text"/>
-            <button>Search</button>
-        </div>
-    )
+class Search extends Component {
+    state = {
+        username: ''
+    }
+    handleChange = (event) => {
+        this.setState({
+            username: event.target.value
+        });
+    }
+    handleClick = () => {
+        getReposByUsername(this.state.username)
+            .then((repos) => this.props.handleSearch(repos));
+    }
+    render(){
+        return (
+            <div>
+                <input 
+                    type="text" 
+                    value={this.state.username}
+                    onChange={this.handleChange}
+                    />
+                <button onClick={ this.handleClick }>Search</button>
+            </div>
+        )
+    }
 }
 
 export default Search;
