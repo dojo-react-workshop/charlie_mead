@@ -9,6 +9,7 @@
 
 ## Demos
 * [react with api](./with-api)
+* [diy router](./diy_router)
 
 ## Morning Coding Challenges
 * [filter](./coding_challenges/filter.js)

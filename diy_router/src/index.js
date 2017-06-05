@@ -25,7 +25,7 @@ Link.propTypes = {
 }
 
 const Route = ({ path, component: Component }) => {
-    if (webRouter.path === path) {
+    if (webRouter.path() === path) {
         return <Component />
     }
     return null;
@@ -37,12 +37,16 @@ Route.propTypes = {
 }
 
 class App extends Component {
+    constructor(props) {
+        super(props);
+        webRouter.subscribe(this.rerender);
+    }
     rerender = () => {
         this.forceUpdate();
     }
     render() {
         return (
-            <div>
+            <div >
                 <Link path="/javascript" >JavaScript</Link>
                 <Link path="/haskell" >Haskell</Link>
                 <Link path="/coffeescript" >CoffeeScript</Link>
@@ -50,7 +54,7 @@ class App extends Component {
                 <Route path="/javascript" component={JavaScript} />
                 <Route path="/haskell" component={Haskell} />
                 <Route path="/coffeescript" component={CoffeeScript} />
-            </div>
+            </div >
         )
     }
 }
