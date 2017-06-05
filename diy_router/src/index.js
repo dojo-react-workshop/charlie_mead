@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-const { history } = window;
+import { string, func } from 'prop-types';
+const { history, location } = window;
 
 const JavaScript = () => <p>A high-level, dynamic, untyped, and interpreted programming language.</p>
 const Haskell = () => <p>A standardized, general-purpose purely functional programming language, with non-strict semantics and strong static typing.</p>
@@ -18,20 +19,40 @@ const Link = (props) => {
     );
 }
 
-// Route goes here
+Link.propTypes = {
+    path: string.isRequired,
+    children: string.isRequired
+}
 
-const App = () => {
-    return (
-        <div>
-            <Link path="/javascript">JavaScript</Link>
-            <Link path="/haskell">Haskell</Link>
-            <Link path="/coffeescript">CoffeeScript</Link>
-            <hr />
-            <Route path="/javascript" component={JavaScript} />
-            <Route path="/haskell" component={Haskell} />
-            <Route path="/coffeescript" component={CoffeeScript} />
-        </div>
-    )
+const Route = ({ path, component: Component }) => {
+    if (location.pathname === path) {
+        return <Component />
+    }
+    return null;
+}
+
+Route.propTypes = {
+    path: string.isRequired,
+    component: func.isRequired
+}
+
+class App extends Component {
+    rerender = () => {
+        this.forceUpdate();
+    }
+    render() {
+        return (
+            <div>
+                <Link path="/javascript">JavaScript</Link>
+                <Link path="/haskell">Haskell</Link>
+                <Link path="/coffeescript">CoffeeScript</Link>
+                <hr />
+                <Route path="/javascript" component={JavaScript} />
+                <Route path="/haskell" component={Haskell} />
+                <Route path="/coffeescript" component={CoffeeScript} />
+            </div>
+        )
+    }
 }
 
 
