@@ -4,7 +4,8 @@
 * [composable squares](./composable_squares/index.html)
 * [counter](./counter/index.html)
 * [voting app](./voting_app/index.html)
-* [tic-tac-toe](./tic-tac-toe/index.html)
+* [tic-tac-toe](./tic-tac-toe)
+* [memory game](./memory_game)
 
 ## Demos
 * [react with api](./with-api)
@@ -18,3 +19,5 @@
 * [get products](./coding_challenges/getProducts.js)
 * [rainy terraces](./coding_challenges/rainyTerraces.js)
 * [in order subsets](./coding_challenges/inOrderSubsets.js)
+* [flatten](./coding_challenges/flatten.js)
+* [balance point](./coding_challenges/balancePoint.js)
