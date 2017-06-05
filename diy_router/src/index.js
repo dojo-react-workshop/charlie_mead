@@ -10,7 +10,8 @@ const CoffeeScript = () => <p>A programming language that transpiles into JavaSc
 const Link = (props) => {
     const handleClick = (event) => {
         event.preventDefault();
-        history.pushState({}, null, `${props.path}`)
+        history.pushState({}, null, `${props.path}`);
+        props.rerender();
     }
     return (
         <div>
@@ -43,9 +44,9 @@ class App extends Component {
     render() {
         return (
             <div>
-                <Link path="/javascript">JavaScript</Link>
-                <Link path="/haskell">Haskell</Link>
-                <Link path="/coffeescript">CoffeeScript</Link>
+                <Link path="/javascript" rerender={this.rerender}>JavaScript</Link>
+                <Link path="/haskell" rerender={this.rerender}>Haskell</Link>
+                <Link path="/coffeescript" rerender={this.rerender}>CoffeeScript</Link>
                 <hr />
                 <Route path="/javascript" component={JavaScript} />
                 <Route path="/haskell" component={Haskell} />
