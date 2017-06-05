@@ -2,18 +2,29 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
 class MyForm extends Component {
+  state = {
+    name: '',
+    description: ''
+  }
+  handleChange = (event) => {
+
+    const { value, name } = event.target;
+
+
+    this.setState({
+      [name]: value
+    });
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    console.log('You submitted: ', this.state)
+  }
   render() {
     return (
-      <form>
-        <textarea rows="20" cols="15"></textarea>
-        <input type="text" />
-        <input type="radio" />
-        <input type="checkbox" />
-        <select>
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-        </select>
+      <form onSubmit={this.handleSubmit}>
+        Name: <input onChange={this.handleChange} type="text" value={this.state.name} name="name" />
+        Description: <textarea onChange={this.handleChange} value={this.state.description} name="description"></textarea>
         <input type="submit" />
       </form>
     )
