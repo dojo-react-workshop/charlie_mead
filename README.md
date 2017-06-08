@@ -7,6 +7,7 @@
 * [tic-tac-toe](./tic-tac-toe)
 * [memory game](./memory_game)
 * [validated form](./validated_form)
+* [exam](./exam)
 
 ## Demos
 * [react with api](./with-api)
