@@ -20,7 +20,7 @@ class SearchForm extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <hr />
                     {
-                        this.props.error ? <ErrorNotification error={this.props.error} onClick={this.onErrorClick} /> : null
+                        this.props.error ? <ErrorNotification error={this.props.error} /> : null
                     }
                     <label>Search repositories by Github username</label>
                     <input placeholder="username" type="text" value={this.state.searchTerm} onChange={this.handleChange} />
