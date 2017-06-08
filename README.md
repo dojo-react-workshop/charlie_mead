@@ -24,3 +24,4 @@
 * [in order subsets](./coding_challenges/inOrderSubsets.js)
 * [flatten](./coding_challenges/flatten.js)
 * [balance point](./coding_challenges/balancePoint.js)
+* [greatest sum](./coding_challenges/highestProduct.js)

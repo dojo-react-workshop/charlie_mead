@@ -11,6 +11,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jest": "^20.0.4"
+    "faker": "^4.1.0",
+    "jest": "^20.0.4",
+    "underscore": "^1.8.3"
   }
 }
