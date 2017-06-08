@@ -13,12 +13,33 @@
 <body>
     <div class="row">
         <div class="columns large-6 large-centered medium-6 medium-centered small-6 small-centered">
-            <h2>Counter: <span id="counter">0</span></h2>
+            <h2>Counter: <span id="counter"></span></h2>
             <button id="increment">Increment</button>
             <button id="decrement">Decrement</button>
         </div>
     </div>
 </body>
-</body>
+<script>
+    let count = 0;
+    const counterSpan = document.getElementById('counter');
+    render();
+
+    function render() {
+        document.getElementById('counter').innerHTML = count;
+    }
+
+    const incButton = document.getElementById('increment');
+
+    incButton.onclick = function handleIncrement() {
+        count += 1;
+        render();
+    }
+
+    const decButton = document.getElementById('decrement');
+    decButton.onclick = function handleDecrement() {
+        count -= 1;
+        render();
+    }
+</script>
 
 </html>
