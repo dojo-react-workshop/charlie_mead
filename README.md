@@ -8,6 +8,7 @@
 * [memory game](./memory_game)
 * [validated form](./validated_form)
 * [exam](./exam)
+* [react redux](./react-redux-todo)
 
 ## Demos
 * [react with api](./with-api)
@@ -25,3 +26,4 @@
 * [flatten](./coding_challenges/flatten.js)
 * [balance point](./coding_challenges/balancePoint.js)
 * [greatest sum](./coding_challenges/highestProduct.js)
+* [merge calendar](./coding_challenges/mergeCalendar.js)
