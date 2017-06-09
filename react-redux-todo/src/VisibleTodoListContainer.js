@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux'
 import TodoList from './TodoList'
 
@@ -17,6 +16,8 @@ const getVisibleTodos = (todos, filter) => {
             return todos.filter(t => t.completed)
         case 'SHOW_ACTIVE':
             return todos.filter(t => !t.completed)
+        default:
+            return todos;
     }
 }
 
