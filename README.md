@@ -27,3 +27,5 @@
 * [balance point](./coding_challenges/balancePoint.js)
 * [greatest sum](./coding_challenges/highestProduct.js)
 * [merge calendar](./coding_challenges/mergeCalendar.js)
+* [string anagram](./coding_challenges/strAnagram.js)
+* [matrix search](./coding_challenges/matrixSearch.js)
