@@ -29,3 +29,4 @@
 * [merge calendar](./coding_challenges/mergeCalendar.js)
 * [string anagram](./coding_challenges/strAnagram.js)
 * [matrix search](./coding_challenges/matrixSearch.js)
+* [coin collector](./coding_challenges/coinCollector.js)
