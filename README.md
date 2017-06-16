@@ -31,3 +31,4 @@
 * [matrix search](./coding_challenges/matrixSearch.js)
 * [coin collector](./coding_challenges/coinCollector.js)
 * [overlapping rectangles](./coding_challenges/overlappingRectangles.js)
+* [number cruncher](./coding_challenges/numCruncher)
